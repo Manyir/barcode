@@ -1,10 +1,12 @@
 // 다 날려먹고 일시적으로 만든 거 손 볼 거 많다.
 
 import mssql from 'mssql';
-import { Pool } from 'pg';
+import pkg from 'pg';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+const { Pool } = pkg;
 
 // __dirname 설정 (ESM 환경 대응)
 const __filename = fileURLToPath(import.meta.url);
