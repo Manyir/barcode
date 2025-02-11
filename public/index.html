@@ -4,9 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BSS</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".login-form").addEventListener("submit", (event) => {
+        event.preventDefault(); // 기본 폼 제출 방지
+        window.location.href = "./bscan.html"; // 페이지 이동
+      });
+    });
+  </script>
 </head>
 <body>
-  <form class="login-form" action="../scan/bscan.html">
+  <form class="login-form">
     <input type="text" placeholder="Username"></br>
     <input type="password" placeholder="Password"></br>
     <button type="submit">LOGIN!</button>

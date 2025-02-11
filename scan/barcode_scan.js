@@ -60,15 +60,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function insertBarcodeIntoTable(barcode) {
-      const newRow = document.createElement("tr");
-      newRow.innerHTML = `
-          <td><input type='checkbox'></td>
-          <td></td> <!-- 제품명 없음 -->
-          <td></td> <!-- 등급 없음 -->
-          <td></td> <!-- 중량 없음 -->
-          <td>${barcode}</td>
-      `;
-      dataTable.appendChild(newRow);
+    if (!clientCodeInput.value.trim()) {
+        alert("거래처 코드를 입력하세요.");
+        clientCodeInput.focus();
+        return;
+    }
+
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+        <td><input type='checkbox'></td>
+        <td></td> <!-- 제품명 없음 -->
+        <td></td> <!-- 등급 없음 -->
+        <td></td> <!-- 중량 없음 -->
+        <td>${barcode}</td>
+    `;
+    dataTable.appendChild(newRow);
   }
 
   historyCheckbox.addEventListener("change", setActiveInput);
