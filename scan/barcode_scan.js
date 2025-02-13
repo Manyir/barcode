@@ -87,3 +87,4 @@ document.addEventListener("DOMContentLoaded", () => {
   // 페이지 로드 시 이력번호 사용 상태 확인 후 필드 설정
   window.onload = setActiveInput;
 });
+ 

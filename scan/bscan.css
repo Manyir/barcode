@@ -1,0 +1,47 @@
+/* 선택된 행 스타일 */
+.selected {
+  background-color: #007bff !important;
+  color: white;
+}
+
+/* 테이블 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+/* 버튼 스타일 */
+button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* 선택된 행 스타일 */
+.selected {
+  background-color: #007bff !important;
+  color: white;
+}
+
+/* 다중 선택 체크박스 스타일 */
+#multiSelect {
+  transform: scale(1.5);
+  margin-right: 5px;
+}

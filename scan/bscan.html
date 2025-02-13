@@ -4,40 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>바코드 스캐너</title>
-    <!-- <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 10px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            font-size: 16px;
-        }
-        input[type="text"], input[type="checkbox"], input[type="radio"] {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            font-size: 16px;
-        }
-    </style> -->
-    <script src="./barcode_scan.js"></script>
+    <link rel="stylesheet" href="./bscan.css">
+    <script src="./bscan.js" defer></script>
 </head>
 <body>
     <h2>바코드 스캔 페이지</h2>
-    
+    <p id="username-display">사용자: 불러오는 중...</p>
+    <button id="logout-btn">로그아웃</button>
+
+    <br><br>
+
     <!-- 출고/입고 선택 -->
     <label>
         <input type="radio" name="orderType" value="출고">출고
@@ -59,7 +35,7 @@
     <br><br>
 
     <!-- 거래처 코드 -->
-    <label>거래처 코드: <input type="text" id="clientCode"></label>
+    <label>거래처코드: <input type="text" id="clientCode" maxlength="4"></label>
     
     <br><br>
     
@@ -76,17 +52,19 @@
 
     <!-- 바코드 입력 및 옵션 -->
     <label>바코드: <input type="text" id="barcodeInput"></label>
-    <label>
-        <input type="checkbox" id="deleteBarcode"> 바코드 삭제
-    </label>
+    <button id="addBarcode">추가</button>
     
+    <!-- 다중 선택 옵션 -->
+    <label>
+        <input type="checkbox" id="multiSelect"> 다중 선택
+    </label>
+
     <br><br>
 
     <!-- 데이터 테이블 -->
-    <table>
+    <table border="1">
         <thead>
             <tr>
-                <th><input type="checkbox" id="selectAll"></th>
                 <th>제품명</th>
                 <th>등급</th>
                 <th>중량</th>
@@ -97,18 +75,11 @@
             <!-- 스캔된 데이터가 여기에 추가됨 -->
         </tbody>
     </table>
-    
+
     <br>
     
-    <!-- 다중 선택 옵션 -->
-    <label>
-        <input type="checkbox" id="multiSelect"> 다중 선택
-    </label>
-    
-    <br><br>
-    
     <!-- 버튼들 -->
-    <button id="deleteProduct">제품 삭제</button>
+    <button id="deleteProduct">선택한 제품 삭제</button>
     <button id="resetTable">초기화</button>
     <button id="sendData">전송</button>
 </body>
