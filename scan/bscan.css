@@ -1,10 +1,9 @@
-/* 선택된 행 스타일 */
-.selected {
-  background-color: #007bff !important;
-  color: white;
+/* 🌟 테마 색상 변수 설정 */
+:root {
+  --main-color: #007bff; /* 기본 색상 (출고 + 정상) */
 }
 
-/* 테이블 스타일 */
+/* ✅ 테이블 스타일 */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -20,28 +19,55 @@ th {
   background-color: #f4f4f4;
 }
 
-/* 버튼 스타일 */
+/* ✅ 선택된 행 스타일 */
+.selected {
+  background-color: var(--accent-color) !important;
+  color: white;
+}
+
+/* ✅ 버튼 스타일 */
 button {
   padding: 8px 12px;
   border: none;
-  background-color: #007bff;
+  background-color: var(--main-color);
   color: white;
   cursor: pointer;
   margin-right: 5px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: darken(var(--main-color), 10%);
 }
 
-/* 선택된 행 스타일 */
-.selected {
-  background-color: #007bff !important;
-  color: white;
-}
-
-/* 다중 선택 체크박스 스타일 */
+/* ✅ 다중 선택 체크박스 스타일 */
 #multiSelect {
   transform: scale(1.5);
   margin-right: 5px;
+}
+
+/* ✅ 라디오 버튼을 숨기고 버튼처럼 보이게 설정 */
+.toggle-group input[type="radio"] {
+  display: none;
+}
+
+/* ✅ 버튼 스타일 라벨 */
+.toggle-group label {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid var(--main-color);
+  background-color: white;
+  color: var(--main-color);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* ✅ 선택된 버튼 스타일 */
+.toggle-group input[type="radio"]:checked + label {
+  background-color: var(--main-color);
+  color: white;
+  border-color: var(--main-color);
 }

@@ -14,25 +14,27 @@
 
     <br><br>
 
-    <!-- 출고/입고 선택 -->
-    <label>
-        <input type="radio" name="orderType" value="출고">출고
-    </label>
-    <label>
-        <input type="radio" name="orderType" value="입고">입고
-    </label>
-    
-    <br><br>
+    <!-- 출고/입고 선택 (메인 컬러 변경) -->
+    <div class="toggle-group">
+        <input type="radio" id="outbound" name="orderType" value="출고" checked>
+        <label for="outbound">출고</label>
 
-    <!-- 정상/반품 선택 -->
-    <label>
-        <input type="radio" name="returnType" value="정상">정상
-    </label>
-    <label>
-        <input type="radio" name="returnType" value="반품">반품
-    </label>
+        <input type="radio" id="inbound" name="orderType" value="입고">
+        <label for="inbound">입고</label>
+    </div>
 
     <br><br>
+
+    <!-- 정상/반품 선택 (강조 색상 변경) -->
+    <div class="toggle-group">
+        <input type="radio" id="normal" name="returnType" value="정상" checked>
+        <label for="normal">정상</label>
+
+        <input type="radio" id="return" name="returnType" value="반품">
+        <label for="return">반품</label>
+    </div>
+
+    <br>
 
     <!-- 거래처 코드 -->
     <label>거래처코드: <input type="text" id="clientCode" maxlength="4"></label>
@@ -52,7 +54,6 @@
 
     <!-- 바코드 입력 및 옵션 -->
     <label>바코드: <input type="text" id="barcodeInput"></label>
-    <button id="addBarcode">추가</button>
     
     <!-- 다중 선택 옵션 -->
     <label>

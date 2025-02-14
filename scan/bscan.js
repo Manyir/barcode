@@ -115,15 +115,6 @@ document.getElementById("logout-btn").addEventListener("click", async () => {
       }
   });
 
-  document.getElementById("addBarcode").addEventListener("click", () => {
-      if (!barcodeInput.value.trim()) {
-          alert("바코드를 입력하세요.");
-          return;
-      }
-      insertBarcodeIntoTable(barcodeInput.value.trim());
-      barcodeInput.value = "";
-  });
-
   function insertBarcodeIntoTable(barcode) {
       if (!clientCodeInput.value.trim()) {
           alert("거래처 코드를 입력하세요.");
@@ -174,3 +165,36 @@ document.getElementById("logout-btn").addEventListener("click", async () => {
       }
   });
 });
+
+const orderTypeRadios = document.querySelectorAll("input[name='orderType']");
+const returnTypeRadios = document.querySelectorAll("input[name='returnType']");
+
+// ✅ 색상 조합 설정
+const themeColors = {
+    "출고-정상": "#007bff",  // 파란색
+    "출고-반품": "#dc3545",  // 빨간색
+    "입고-정상": "#28a745",  // 초록색
+    "입고-반품": "#fd7e14",  // 주황색
+};
+
+// ✅ 테마 색상 변경 함수
+function updateThemeColor() {
+    const orderType = document.querySelector("input[name='orderType']:checked").value;
+    const returnType = document.querySelector("input[name='returnType']:checked").value;
+    const themeKey = `${orderType}-${returnType}`;
+
+    document.documentElement.style.setProperty("--main-color", themeColors[themeKey]);
+}
+
+// ✅ 출고/입고 변경 시 테마 업데이트
+orderTypeRadios.forEach(radio => {
+    radio.addEventListener("change", updateThemeColor);
+});
+
+// ✅ 정상/반품 변경 시 테마 업데이트
+returnTypeRadios.forEach(radio => {
+    radio.addEventListener("change", updateThemeColor);
+});
+
+// ✅ 페이지 로드 시 초기 색상 설정
+document.addEventListener("DOMContentLoaded", updateThemeColor);
